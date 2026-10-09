@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>รายงานผลการเบิกจ่ายวัสดุสำนักงาน ปีงบประมาณ 2569</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5F0;--card:#fff;--ink:#1E2A44;--mute:#7B8296;--line:#ECE8DF;--teal:#1F7A78;--teal2:#CFE6E3;--gold:#C09A5B;--rose:#C4655C;--sage:#9DB4A8}
+*{box-sizing:border-box;margin:0}
+body{font-family:Prompt,"Noto Sans Thai",system-ui,sans-serif;background:var(--bg);color:var(--ink);font-weight:300;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 24px 56px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:500}
+h1{font-size:28px;font-weight:500;margin-top:4px}
+.sub{color:var(--mute);font-size:14px}
+.badge{border:1px solid var(--gold);color:var(--gold);padding:4px 14px;border-radius:99px;font-size:13px;font-weight:400}
+.grid{display:grid;gap:16px}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:16px}
+.card{background:var(--card);border-radius:18px;padding:22px 24px;box-shadow:0 1px 2px rgba(30,42,68,.04),0 8px 24px rgba(30,42,68,.04)}
+.kpi .l{font-size:13px;color:var(--mute)}
+.kpi .v{font-size:34px;font-weight:500;margin-top:2px}
+.kpi .s{font-size:12px;color:var(--mute)}
+.kpi:nth-child(1) .v{color:var(--ink)}.kpi:nth-child(2) .v{color:var(--teal)}.kpi:nth-child(3) .v{color:var(--gold)}.kpi:nth-child(4) .v{color:var(--rose)}.kpi:nth-child(5) .v{color:var(--mute)}
+h2{font-size:16px;font-weight:500;margin-bottom:2px}
+.cap{font-size:12px;color:var(--mute);margin-bottom:18px}
+.row2{grid-template-columns:1.6fr 1fr;margin-bottom:16px}
+.row3{grid-template-columns:1fr 1.3fr;margin-bottom:16px}
+@media(max-width:860px){.row2,.row3{grid-template-columns:1fr}}
+.bars{display:flex;align-items:flex-end;gap:10px;height:210px;padding-top:20px}
+.bars .c{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:12px;color:var(--mute)}
+.bars .b{width:100%;max-width:34px;border-radius:8px 8px 3px 3px;background:var(--teal2);min-height:3px;transition:.2s}
+.bars .c:hover .b{filter:brightness(.92)}
+.bars .t{font-size:12px;color:var(--ink);font-weight:500;margin-bottom:4px;min-height:18px}
+.bars .peak{background:var(--gold)}.bars .on{background:var(--teal)}
+.bars .m{margin-top:8px;white-space:nowrap}
+.hb{display:grid;grid-template-columns:150px 1fr 38px;gap:10px;align-items:center;font-size:13px;margin:9px 0}
+.hb .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hb .tr{height:8px;border-radius:9px;background:var(--line);overflow:hidden}
+.hb .tr i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--teal),#4BA39F)}
+.hb b{text-align:right;font-weight:500}
+.donut{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.ring{width:150px;height:150px;border-radius:50%;position:relative;flex:none}
+.ring:after{content:"";position:absolute;inset:24px;background:#fff;border-radius:50%}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;z-index:1;font-size:26px;font-weight:500}
+.lg div{display:flex;align-items:center;gap:8px;font-size:13px;margin:7px 0}
+.lg i{width:10px;height:10px;border-radius:50%}
+.lg b{margin-left:auto;padding-left:18px;font-weight:500}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.tools input{flex:1;min-width:200px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font:inherit;font-size:14px;background:var(--bg);outline:none}
+.tools input:focus{border-color:var(--teal)}
+.chip{border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer;color:var(--mute)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{font-weight:400;color:var(--mute);text-align:right;padding:10px 12px;border-bottom:1px solid var(--line);cursor:pointer;white-space:nowrap;user-select:none}
+td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:nth-child(-n+3),td:nth-child(-n+3){text-align:left}
+tr:hover td{background:#FBFAF7}
+td.nm{white-space:normal;min-width:220px}td small{display:block;color:var(--mute);font-size:11px}
+.pb{display:inline-block;width:70px;height:6px;border-radius:9px;background:var(--line);vertical-align:middle;margin-left:8px;overflow:hidden}
+.pb i{display:block;height:100%;background:var(--gold)}
+.st{padding:3px 11px;border-radius:99px;font-size:12px;font-weight:400}
+.s1{background:#DDEEEC;color:var(--teal)}.s2{background:#EFEDE8;color:var(--mute)}.s3{background:#F6E1DE;color:var(--rose)}
+footer{margin-top:22px;font-size:12px;color:var(--mute);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><div class="eyebrow">OFFICE SUPPLIES · FY 2569</div>
+  <h1>รายงานผลการเบิกจ่ายวัสดุสำนักงาน</h1>
+  <div class="sub">ปีงบประมาณ 2569 · ตุลาคม 2568 – กันยายน 2569</div></div>
+  <div class="badge" id="count"></div>
+</header>
+<section class="grid kpis" id="kpis"></section>
+<section class="grid row2">
+  <div class="card"><h2>การเบิกรายเดือน</h2><div class="cap">ปริมาณที่เบิกรวมทุกรายการ (หน่วย) · สีทอง = เดือนที่เบิกสูงสุด</div><div class="bars" id="months"></div></div>
+  <div class="card"><h2>สถานะการเบิก</h2><div class="cap">แบ่งตามความเคลื่อนไหวของแต่ละรายการ</div><div class="donut"><div class="ring" id="ring"></div><div class="lg" id="lg"></div></div></div>
+</section>
+<section class="grid row3">
+  <div class="card"><h2>10 อันดับรายการที่เบิกมากที่สุด</h2><div class="cap">เรียงตามยอดเบิกตลอดปี</div><div id="top"></div></div>
+  <div class="card"><h2>รายการที่ต้องจับตา</h2><div class="cap">สต็อกหมด หรือเหลือน้อยกว่า 20% ของยอดที่มีทั้งหมด</div><div id="watch"></div></div>
+</section>
+<section class="card">
+  <h2>รายการวัสดุทั้งหมด</h2><div class="cap">คลิกหัวตารางเพื่อเรียงลำดับ</div>
+  <div class="tools"><input id="q" placeholder="ค้นหาชื่อรายการ หรือรหัสสินค้า…">
+  <button class="chip on" data-f="all">ทั้งหมด</button><button class="chip" data-f="used">มีการเบิก</button><button class="chip" data-f="idle">ไม่มีการเบิก</button><button class="chip" data-f="out">หมดสต็อก</button></div>
+  <div class="tw"><table><thead id="th"></thead><tbody id="tb"></tbody></table></div>
+</section>
+<footer>ปริมาณรวมคำนวณจากทุกหน่วยนับ (เช่น รีม กล่อง อัน) ใช้ดูแนวโน้มเท่านั้น · ข้อมูลจากทะเบียนวัสดุสำนักงาน ปีงบประมาณ 2569</footer>
+</div>
+<script>
+const D=[{"no": 1, "code": "5935-004-000008", "name": "รางปลั๊กไฟ 5ช่อง 5สวิตซ์", "unit": "อัน", "carry": 0, "buy": 4, "used": 0, "left": 4, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 2, "code": "7520-003-000008", "name": "เครื่องเย็บกระดาษ HD-10", "unit": "เครื่อง", "carry": 3, "buy": 0, "used": 0, "left": 3, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 3, "code": "7520-004-000001", "name": "ที่แกะลวดเย็บกระดาษ", "unit": "อัน", "carry": 3, "buy": 0, "used": 0, "left": 3, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 4, "code": "6135-002-000001", "name": "ถ่าน 2A", "unit": "ก้อน", "carry": 10, "buy": 40, "used": 16, "left": 34, "m": [0, 0, 0, 4, 4, 0, 0, 4, 0, 0, 4, 0]}, {"no": 5, "code": "6135-002-000002", "name": "ถ่าน 3A", "unit": "ก้อน", "carry": 18, "buy": 40, "used": 14, "left": 44, "m": [0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 2, 0]}, {"no": 6, "code": "6135-002-000007", "name": "ถ่านกระดุม CR2032", "unit": "ก้อน", "carry": 3, "buy": 0, "used": 0, "left": 3, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 7, "code": "7530-007-000001", "name": "กระดาษคาร์บอน", "unit": "แผ่น", "carry": 200, "buy": 0, "used": 0, "left": 200, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 8, "code": "7530-013-000044", "name": "กระดาษสี A4 80แกรม", "unit": "รีม", "carry": 0, "buy": 2, "used": 0, "left": 2, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 9, "code": "7530-013-000061", "name": "กระดาษ A4 80แกรม สีขาว", "unit": "รีม", "carry": 40, "buy": 50, "used": 26, "left": 64, "m": [0, 0, 5, 10, 0, 0, 0, 5, 0, 0, 6, 0]}, {"no": 10, "code": "7530-013-000062", "name": "กระดาษ A4 80แกรม สีเขียว", "unit": "รีม", "carry": 2, "buy": 0, "used": 0, "left": 2, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 11, "code": "7530-013-000063", "name": "กระดาษ A4 80แกรม สีชมพู", "unit": "รีม", "carry": 2, "buy": 0, "used": 0, "left": 2, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 12, "code": "7530-013-000087", "name": "กระดาษโน๊ต (โพสต์-อิท) ขนาด 3x3 นิ้ว", "unit": "เล่ม", "carry": 20, "buy": 50, "used": 5, "left": 65, "m": [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0]}, {"no": 13, "code": "7530-013-000108", "name": "กระดาษโน้ต (โพสต์-อิท) ขนาด 1.5x5 ซม.", "unit": "แพค", "carry": 4, "buy": 10, "used": 2, "left": 12, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0]}, {"no": 14, "code": "7530-013-000130", "name": "กระดาษโน๊ต โพสต์-อิน แฟล็กซ์ 0.47x1.7", "unit": "แพค", "carry": 5, "buy": 10, "used": 3, "left": 12, "m": [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0]}, {"no": 15, "code": "7530-013-000131", "name": "สติกเกอร์กระดาษขาวด้าน A4", "unit": "แพค", "carry": 1, "buy": 1, "used": 0, "left": 2, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 16, "code": "7530-013-000140", "name": "กระดาษโฟโต้อิงค์เจ็ท", "unit": "แพค", "carry": 0, "buy": 2, "used": 0, "left": 2, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 17, "code": "7530-013-000215", "name": "กระดาษโน้ต (โพสต์-อิท) ขนาด 1.5 x 2 นิ้ว", "unit": "เล่ม", "carry": 0, "buy": 120, "used": 0, "left": 120, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 18, "code": "7510-001-000061", "name": "แฟ้มสันรูด 5มม.", "unit": "อัน", "carry": 13, "buy": 0, "used": 0, "left": 13, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 19, "code": "7510-001-000135", "name": "ซองเอกสารนํ้าตาล  9x12 3/4", "unit": "ซอง", "carry": 100, "buy": 0, "used": 50, "left": 50, "m": [0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 20, "code": "7510-001-000140", "name": "แฟ้มซองพลาสติก A4  คละสี", "unit": "แพค", "carry": 0, "buy": 20, "used": 5, "left": 13, "m": [0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 1, 0]}, {"no": 21, "code": "7510-002-000010", "name": "ปากกาเน้นข้อความ", "unit": "ด้าม", "carry": 0, "buy": 12, "used": 3, "left": 9, "m": [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0]}, {"no": 22, "code": "7510-002-000011", "name": "ปากกามาร์คเกอร์", "unit": "ด้าม", "carry": 0, "buy": 15, "used": 0, "left": 15, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 23, "code": "7510-002-000015", "name": "ปากกาลูกลื่น สีแดง", "unit": "ด้าม", "carry": 48, "buy": 0, "used": 0, "left": 48, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 24, "code": "7510-002-000023", "name": "ปากกาหมึกเจล สีนํ้าเงิน", "unit": "ด้าม", "carry": 0, "buy": 60, "used": 0, "left": 60, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 25, "code": "7510-006-000002", "name": "ปากกาลบคําผิด", "unit": "ด้าม", "carry": 1, "buy": 0, "used": 0, "left": 1, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 26, "code": "7510-006-000006", "name": "เทปลบคําผิด", "unit": "อัน", "carry": 2, "buy": 0, "used": 0, "left": 2, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 27, "code": "7510-007-000007", "name": "เทปกาวย่น", "unit": "ม้วน", "carry": 3, "buy": 0, "used": 1, "left": 2, "m": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]}, {"no": 28, "code": "7510-007-000009", "name": "เทปกาวย่น 2นิ้ว", "unit": "ม้วน", "carry": 5, "buy": 0, "used": 3, "left": 2, "m": [0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0]}, {"no": 29, "code": "7510-007-000033", "name": "เทปเยื่อกาว 2หน้า 18มม.", "unit": "ม้วน", "carry": 22, "buy": 0, "used": 1, "left": 21, "m": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]}, {"no": 30, "code": "7510-007-000041", "name": "เทปโอพีพี 48มม.x40ม. สีใส", "unit": "ม้วน", "carry": 0, "buy": 12, "used": 0, "left": 12, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 31, "code": "7510-007-000071", "name": "สก็อตเทป แกน 1 นิ้ว 3/4 นิ้ว x36 เหลา สีขาว", "unit": "ม้วน", "carry": 5, "buy": 6, "used": 0, "left": 11, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 32, "code": "7510-007-000096", "name": "สก็อตเทป แกน 1 นิ้ว 3/4 นิ้ว", "unit": "ม้วน", "carry": 17, "buy": 0, "used": 0, "left": 17, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 33, "code": "7510-007-000110", "name": "เทปใสกาว 2 หน้า แกน 3\" 1/2\"x36 y. สก๊อตช์ 665", "unit": "ม้วน", "carry": 15, "buy": 0, "used": 0, "left": 15, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 34, "code": "7510-007-000141", "name": "เทปกาวย่น แกน 3 นิ้ว กว้าง 1 นิ้ว สีขาว", "unit": "ม้วน", "carry": 0, "buy": 6, "used": 1, "left": 5, "m": [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]}, {"no": 35, "code": "7510-007-000146", "name": "สก็อตเทปใส แกน 1 นิ้ว ขนาด 24มม. x 36หลา", "unit": "ม้วน", "carry": 20, "buy": 60, "used": 5, "left": 75, "m": [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0]}, {"no": 36, "code": "7510-008-000002", "name": "กาวแท่ง", "unit": "แท่ง", "carry": 6, "buy": 12, "used": 1, "left": 17, "m": [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 37, "code": "7510-010-000001", "name": "ลวดเสียบกระดาษ", "unit": "กล่อง", "carry": 0, "buy": 50, "used": 0, "left": 50, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 38, "code": "7510-011-000003", "name": "คลิปดำ 19 มม. (เบอร์ 112)", "unit": "กล่อง", "carry": 2, "buy": 0, "used": 2, "left": 0, "m": [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 39, "code": "7510-011-000004", "name": "คลิปดํา 25 มม. (เบอร์ 111)", "unit": "กล่อง", "carry": 0, "buy": 12, "used": 1, "left": 11, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]}, {"no": 40, "code": "7510-011-000005", "name": "คลิปดํา 32 มม. (เบอร์ 110)", "unit": "กล่อง", "carry": 0, "buy": 12, "used": 0, "left": 12, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 41, "code": "7510-011-000006", "name": "คลิปดํา 40 มม. (เบอร์ 109)", "unit": "กล่อง", "carry": 6, "buy": 0, "used": 0, "left": 6, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 42, "code": "7510-011-000009", "name": "คลิปดํา 50 มม. (เบอร์ 108)", "unit": "กล่อง", "carry": 0, "buy": 6, "used": 0, "left": 6, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 43, "code": "7510-011-000018", "name": "ลวดเสียบกลม 32 มม.", "unit": "กล่อง", "carry": 30, "buy": 0, "used": 7, "left": 18, "m": [0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0]}, {"no": 44, "code": "7510-016-000030", "name": "ซองเอกสาร C4 ขยายข้าง สีนํ้าตาล", "unit": "ซอง", "carry": 0, "buy": 200, "used": 0, "left": 200, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 45, "code": "7510-016-000033", "name": "ซองเอนกประสงค์ A4", "unit": "ซอง", "carry": 20, "buy": 0, "used": 0, "left": 20, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 46, "code": "7510-016-000044", "name": "ซองเอกสารขนาด A4 ไม่ขยายข้าง ครุฑ", "unit": "ซอง", "carry": 0, "buy": 200, "used": 0, "left": 200, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 47, "code": "7510-019-000007", "name": "ลวดเย็บกระดาษ เบอร์23/24", "unit": "กล่อง", "carry": 24, "buy": 0, "used": 0, "left": 24, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 48, "code": "7510-019-000015", "name": "ลวดเย็บกระดาษ เบอร์35-1M", "unit": "กล่อง", "carry": 15, "buy": 0, "used": 0, "left": 15, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 49, "code": "7510-019-000016", "name": "ลวดเย็บกระดาษ เบอร์10-1M", "unit": "กล่อง", "carry": 21, "buy": 0, "used": 0, "left": 21, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 50, "code": "7510-021-000001", "name": "ใบมีดคัตเตอร์", "unit": "หลอด", "carry": 3, "buy": 0, "used": 0, "left": 3, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 51, "code": "7510-021-000005", "name": "มีดคัดเตอร์ ขนาดเล็ก", "unit": "อัน", "carry": 5, "buy": 0, "used": 0, "left": 5, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 52, "code": "7510-022-000040", "name": "กรอบ T-Stand A4 แนวตั้ง", "unit": "อัน", "carry": 1, "buy": 0, "used": 0, "left": 1, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 53, "code": "7440-009-000003", "name": "เมาส์ไร้สาย", "unit": "อัน", "carry": 0, "buy": 4, "used": 1, "left": 3, "m": [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]}, {"no": 54, "code": "7440-016-000051", "name": "หมึก Brother รุ่นTN-3350", "unit": "กล่อง", "carry": 1, "buy": 0, "used": 0, "left": 1, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 55, "code": "7440-016-000055", "name": "หมึก Brother รุ่นTN-348 สีชมพ", "unit": "กล่อง", "carry": 1, "buy": 0, "used": 0, "left": 1, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 56, "code": "7440-016-000061", "name": "หมึก Brother รุ่นTN-348 สีเหลือง", "unit": "กล่อง", "carry": 1, "buy": 0, "used": 0, "left": 1, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}, {"no": 57, "code": "7440-016-000176", "name": "FlashDrive 128GB", "unit": "อัน", "carry": 0, "buy": 2, "used": 2, "left": 0, "m": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]}, {"no": 58, "code": "7440-016-000193", "name": "สายพานลําเลียงกระดาษ บราเดอร์ BU-300CL", "unit": "ชิ้น", "carry": 1, "buy": 0, "used": 0, "left": 1, "m": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}], MN=["ต.ค.","พ.ย.","ธ.ค.","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย."];
+const $=id=>document.getElementById(id), fmt=n=>n.toLocaleString("th-TH"), esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+D.forEach(i=>{i.avail=i.carry+i.buy;i.pct=i.avail?i.used/i.avail:0;i.st=i.left<=0?3:i.used>0?1:2});
+const used=D.filter(i=>i.used>0), out=D.filter(i=>i.left<=0), idle=D.filter(i=>i.used==0&&i.left>0);
+const total=D.reduce((a,i)=>a+i.used,0), mt=MN.map((_,k)=>D.reduce((a,i)=>a+i.m[k],0)), mc=MN.map((_,k)=>D.filter(i=>i.m[k]>0).length);
+$("count").textContent=D.length+" รายการ";
+$("kpis").innerHTML=[["รายการทั้งหมด",D.length,"รายการวัสดุในทะเบียน"],["รายการที่มีการเบิก",used.length,Math.round(used.length/D.length*100)+"% ของทั้งหมด"],["ปริมาณเบิกรวม",fmt(total),"หน่วย (รวมทุกหน่วยนับ)"],["สต็อกหมด",out.length,"รายการที่คงเหลือเป็น 0"],["ไม่มีการเบิก",idle.length,"ยังไม่เคลื่อนไหวตลอดปี"]].map(k=>`<div class="card kpi"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="s">${k[2]}</div></div>`).join("");
+const mx=Math.max(...mt);
+$("months").innerHTML=mt.map((v,k)=>`<div class="c" title="${MN[k]}: เบิก ${v} หน่วย จาก ${mc[k]} รายการ"><div class="t">${v||""}</div><div class="b ${v==mx&&v?"peak":v?"on":""}" style="height:${v/mx*100}%"></div><div class="m">${MN[k]}</div></div>`).join("");
+const seg=[["มีการเบิก",used.length-out.filter(i=>i.used>0).length,"#1F7A78"],["ไม่มีการเบิก",idle.length,"#D9D4C7"],["หมดสต็อก",out.length,"#C4655C"]];
+let a=0;$("ring").style.background="conic-gradient("+seg.map(s=>{const p=s[1]/D.length*100,r=`${s[2]} ${a}% ${a+p}%`;a+=p;return r}).join(",")+")";
+$("ring").innerHTML=`<span>${Math.round(used.length/D.length*100)}%</span>`;
+$("lg").innerHTML=seg.map(s=>`<div><i style="background:${s[2]}"></i>${s[0]}<b>${s[1]}</b></div>`).join("");
+const top=[...used].sort((x,y)=>y.used-x.used).slice(0,10), tm=top[0]?top[0].used:1;
+$("top").innerHTML=top.map(i=>`<div class="hb"><span class="n" title="${esc(i.name)}">${esc(i.name)}</span><span class="tr"><i style="width:${i.used/tm*100}%"></i></span><b>${i.used}</b></div>`).join("");
+const w=D.filter(i=>i.avail>0&&i.left/i.avail<.2&&i.used>0).sort((x,y)=>x.left/x.avail-y.left/y.avail).slice(0,8);
+$("watch").innerHTML=w.length?w.map(i=>`<div class="hb" style="grid-template-columns:1fr auto"><span class="n">${esc(i.name)}</span><span class="st ${i.left<=0?"s3":"s2"}">เหลือ ${i.left} ${esc(i.unit)}</span></div>`).join(""):'<div class="cap">ไม่มีรายการที่ต้องจับตา</div>';
+let f="all",q="",sk="no",sd=1;
+const cols=[["no","#"],["name","รายการ"],["unit","หน่วย"],["carry","ยกมา"],["buy","จัดซื้อ"],["used","เบิก"],["left","คงเหลือ"],["pct","% เบิก"],["st","สถานะ"]];
+function draw(){
+ $("th").innerHTML="<tr>"+cols.map(c=>`<th data-k="${c[0]}">${c[1]}${sk==c[0]?(sd>0?" ↑":" ↓"):""}</th>`).join("")+"</tr>";
+ const t=q.toLowerCase(), r=D.filter(i=>(f=="all"||(f=="used"&&i.used>0)||(f=="idle"&&i.used==0)||(f=="out"&&i.left<=0))&&(i.name+i.code).toLowerCase().includes(t)).sort((x,y)=>(x[sk]>y[sk]?1:x[sk]<y[sk]?-1:0)*sd);
+ const L=["","มีการเบิก","ไม่มีการเบิก","หมดสต็อก"];
+ $("tb").innerHTML=r.map(i=>`<tr><td>${i.no}</td><td class="nm">${esc(i.name)}<small>${esc(i.code)}</small></td><td>${esc(i.unit)}</td><td>${i.carry}</td><td>${i.buy}</td><td><b style="font-weight:500">${i.used}</b></td><td>${i.left}</td><td>${Math.round(i.pct*100)}%<span class="pb"><i style="width:${i.pct*100}%"></i></span></td><td><span class="st s${i.st}">${L[i.st]}</span></td></tr>`).join("")||'<tr><td colspan="9" style="text-align:center;color:var(--mute)">ไม่พบรายการ</td></tr>';
+}
+$("q").oninput=e=>{q=e.target.value;draw()};
+document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));b.classList.add("on");f=b.dataset.f;draw()});
+$("th").onclick=e=>{const k=e.target.dataset.k;if(!k)return;sd=sk==k?-sd:1;sk=k;draw()};
+draw();
+</script>
+</body>
+</html>
